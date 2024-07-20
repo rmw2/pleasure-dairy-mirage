@@ -1,0 +1,48 @@
+menu "MPR121 Configuration"
+
+	config GPIO_RANGE_MAX
+		int
+		default 33 if IDF_TARGET_ESP32
+		default 46 if IDF_TARGET_ESP32S2
+		default 48 if IDF_TARGET_ESP32S3
+		default 18 if IDF_TARGET_ESP32C2
+		default 19 if IDF_TARGET_ESP32C3
+		default 30 if IDF_TARGET_ESP32C6
+
+	config I2C_ADDRESS
+		hex "I2C address"
+		default 0x5A
+		help
+			I2C address.
+
+	config SCL_GPIO
+		int "SCL GPIO number"
+		range 0 GPIO_RANGE_MAX
+		default 22 if IDF_TARGET_ESP32
+		default 12 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+		default  6 # C3 and others
+		help
+			GPIO number (IOxx) to SCL.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+
+	config SDA_GPIO
+		int "SDA GPIO number"
+		range 0 GPIO_RANGE_MAX
+		default 21 if IDF_TARGET_ESP32
+		default 11 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+		default  5 # C3 and others
+		help
+			GPIO number (IOxx) to SDA.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+
+	config IRQ_GPIO
+		int "IRQ GPIO number"
+		range 0 GPIO_RANGE_MAX
+		default 15 if IDF_TARGET_ESP32
+		default 18 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+		default  4 # C3 and others
+		help
+			GPIO number (IOxx) to IRQ.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+
+endmenu
