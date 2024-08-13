@@ -1,0 +1,11 @@
+channel,net,subnet,universe,netaddress
+button_cactus1,0,0,1,192.168.0.22
+button_cactus3,0,0,2,192.168.0.22
+button_cactus4,0,0,3,192.168.0.22
+button_cactus5,0,0,4,192.168.0.22
+button_cactus7,0,0,5,192.168.0.22
+button_cactus8,0,0,6,192.168.0.22
+saguaro,0,0,7,192.168.0.22
+saguaro1,0,0,8,192.168.0.22
+saguaro2,0,0,9,192.168.0.22
+dome,0,0,1,192.168.0.23
